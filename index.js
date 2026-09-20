@@ -62,6 +62,12 @@ function newCard() {
 
 function getRandomCard() {
     let randomCard = Math.floor( Math.random() * 13 ) + 1
-    return randomCard
+    if (randomCard === 11 || randomCard === 12 || randomCard === 13){
+        return 10
+    } else if (randomCard === 1) {
+        return 11
+    } else {
+        return randomCard
+    }
 }
 
