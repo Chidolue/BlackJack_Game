@@ -1,5 +1,3 @@
-let startBtn = document.getElementById("start-btn")
-let newCardBtn = document.getElementById("new-card-btn")
 let cardsEl = document.getElementById("cards-el")
 let sumEl = document.getElementById("sum-el")
 let messageEl = document.getElementById("message-el")
@@ -11,8 +9,16 @@ let isAlive = true
 
 
 
+function startGame() {
+    cardsEl.textContent = "Cards: "    
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard, secondCard]
+    renderGame()
 
-function sumNums() {
+}
+
+function renderGame() {
     sum = 0
     cardsEl.textContent = "Cards: "
     for (let i = 0; i < cards.length; i++) {
@@ -34,29 +40,12 @@ function sumNums() {
     }
 }
 
-function startGame() {
-    cards = []
-    cardsEl.textContent = "Cards: "
-
-    
-    let firstCard = getRandomCard()
-    let secondCard = getRandomCard()
-
-    cards.push(firstCard, secondCard)
-    sumNums()
-
-}
-
-function renderGame() {
-
-}
-
 function newCard() {
     if (isAlive === true) {
         let nextCard = getRandomCard()
         cards.push(nextCard)
         cards.textContent = "Cards: "
-        sumNums()
+        renderGame()
     }
 }
 
